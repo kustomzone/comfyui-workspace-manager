@@ -1,5 +1,6 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
+import cssInjectedByJsPlugin from "vite-plugin-css-injected-by-js";
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -32,9 +33,10 @@ export default defineConfig({
           Litegraph: "LiteGraph",
         },
         dir: "../dist",
+        manualChunks: undefined,
       },
     },
   },
   // plugins: [react(), watch({ dir: "public" })],
-  plugins: [react()],
+  plugins: [react(), cssInjectedByJsPlugin()],
 });

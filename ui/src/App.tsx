@@ -4,14 +4,9 @@ import { app } from "/scripts/app.js";
 import { ComfyExtension, ComfyObjectInfo } from "./types/comfy";
 // @ts-ignore
 import throttle from "lodash.throttle";
-import {
-  HStack,
-  Input,
-  Box,
-  Button,
-  Text,
-  useColorMode,
-} from "@chakra-ui/react";
+import { HStack, Input, Box, Text, useColorMode } from "@chakra-ui/react";
+import "rsuite/dist/rsuite.min.css";
+
 import {
   IconFolder,
   IconMoon,
@@ -31,6 +26,7 @@ import { findMissingNodes } from "./utils";
 import { defaultGraph } from "./defaultGraph";
 import { WorkspaceContext } from "./WorkspaceContext";
 type Route = "root" | "customNodes" | "recentFlows";
+import { Button } from "rsuite";
 
 type CustomNode = {
   id: string;
@@ -166,6 +162,8 @@ export default function App() {
           gap={4}
         >
           <HStack>
+            <Button appearance="primary">Hello World</Button>
+
             <Button
               size={"sm"}
               aria-label="workspace folder"
@@ -176,20 +174,7 @@ export default function App() {
                 <IconTriangleInvertedFilled size={8} />
               </HStack>
             </Button>
-            <Button
-              size={"sm"}
-              variant={"outline"}
-              colorScheme="teal"
-              aria-label="workspace folder"
-              onClick={() => onClickNewFlow()}
-            >
-              <HStack gap={1} px={3}>
-                <IconPlus size={16} color={"white"} />
-                <Text color={"white"} fontSize={"sm"}>
-                  New
-                </Text>
-              </HStack>
-            </Button>
+
             <Input
               variant="unstyled"
               placeholder="Workflow name"
@@ -201,15 +186,7 @@ export default function App() {
               }}
             />
           </HStack>
-          <HStack>
-            <Button onClick={toggleColorMode} variant="link">
-              {colorMode === "light" ? (
-                <IconMoon size={20} />
-              ) : (
-                <IconSun size={20} />
-              )}
-            </Button>
-          </HStack>
+          <HStack></HStack>
         </HStack>
 
         {route === "recentFlows" && (

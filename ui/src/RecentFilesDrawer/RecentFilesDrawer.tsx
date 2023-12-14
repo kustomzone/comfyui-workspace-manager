@@ -75,7 +75,10 @@ export default function RecentFilesDrawer({
         setRecentFiles: setRecentFlow,
       }}
     >
-      <div style={{ position: "absolute", top: 0, left: 0, right: 0 }}>
+      <div
+        style={{ position: "absolute", top: 0, left: 0, right: 0 }}
+        className="comfyspace"
+      >
         <Drawer
           isOpen={true}
           placement="left"
@@ -83,7 +86,7 @@ export default function RecentFilesDrawer({
           size={"sm"}
         >
           <DrawerOverlay />
-          <DrawerContent>
+          <DrawerContent className="comfyspace">
             <DrawerHeader>
               <HStack alignItems={"center"} justifyContent={"space-between"}>
                 <HStack gap={4}>

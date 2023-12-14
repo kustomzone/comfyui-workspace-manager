@@ -136,6 +136,7 @@ export default function App() {
           top: 0,
           left: 0,
         }}
+        className="comfyspace"
       >
         <HStack
           style={{
@@ -147,6 +148,7 @@ export default function App() {
           justifyContent={"space-between"}
           alignItems={"center"}
           gap={4}
+          className="comfyspace"
         >
           <HStack>
             <Button

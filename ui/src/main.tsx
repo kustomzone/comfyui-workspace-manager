@@ -6,20 +6,33 @@ import { ColorModeScript } from "@chakra-ui/react";
 
 import { ChakraProvider } from "@chakra-ui/react";
 import { extendTheme, type ThemeConfig } from "@chakra-ui/react";
+import MyCSSReset from "./MyCSSReset.tsx";
 
 const topbar = document.createElement("div");
+topbar.className = ".comfyspace";
 document.body.append(topbar);
 
 const config: ThemeConfig = {
   initialColorMode: "dark",
   useSystemColorMode: false,
 };
-const theme = extendTheme({ config });
+
+const theme = extendTheme({
+  styles: {
+    global: {
+      body: {
+        fontFamily: null,
+        lineHeight: null,
+      },
+    },
+  },
+});
 
 export default theme;
 ReactDOM.createRoot(topbar).render(
   <React.StrictMode>
-    <ChakraProvider>
+    <ChakraProvider resetCSS={false}>
+      <MyCSSReset />
       <ColorModeScript initialColorMode={theme.config.initialColorMode} />
       <App />
     </ChakraProvider>
